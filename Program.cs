@@ -14,7 +14,10 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles(); // <-- Esta é a linha correta!
+
+// --- ESTA É A LINHA QUE FALTAVA ---
+app.UseStaticFiles();
+// ----------------------------------
 
 app.UseRouting();
 
@@ -22,6 +25,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}"); // <-- Corrigido
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

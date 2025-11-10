@@ -1,5 +1,6 @@
 using System;
 using System.DirectoryServices.AccountManagement;
+using GerenciadorAD_Web.Models;
 using Microsoft.AspNetCore.Mvc; // <-- ESTA É A LINHA CORRETA!
 
 namespace GerenciadorAD_Web.Controllers
