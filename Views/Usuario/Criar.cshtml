@@ -1,3 +1,12 @@
+<nav>
+    <a asp-controller="Usuario" asp-action="Criar">Criar Usuário</a> |
+    <a asp-controller="Usuario" asp-action="ResetSenha">Resetar Senha</a> |
+    <a asp-controller="Usuario" asp-action="Excluir">Excluir Usuário</a> |
+    <a asp-controller="Usuario" asp-action="AdicionarGrupo">Adicionar ao Grupo</a> |
+    <a asp-controller="Usuario" asp-action="RemoverGrupo">Remover do Grupo</a>
+</nav>
+<br>
+
 @model UserViewModel
 <h2>Criar Usuário AD</h2>
 <form asp-action="Criar" method="post">
