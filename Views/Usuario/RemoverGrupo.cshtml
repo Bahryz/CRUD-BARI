@@ -1,0 +1,11 @@
+@model UserViewModel
+<h2>Remover Usuário do Grupo</h2>
+<form asp-action="RemoverGrupo" method="post">
+    <label>Domínio:</label>
+    <input type="text" name="Dominio" required /><br>
+    <label>Login do Usuário:</label>
+    <input type="text" name="Login" required /><br>
+    <label>Grupo:</label>
+    <input type="text" name="Grupo" required /><br>
+    <button type="submit">Remover</button>
+</form>

@@ -1,0 +1,13 @@
+@model UserViewModel
+<h2>Criar Usuário AD</h2>
+<form asp-action="Criar" method="post">
+    <label>Domínio:</label>
+    <input type="text" name="Dominio" required /><br>
+    <label>Login:</label>
+    <input type="text" name="Login" required /><br>
+    <label>Senha:</label>
+    <input type="password" name="Senha" required /><br>
+    <label>Grupo:</label>
+    <input type="text" name="Grupo" /><br>
+    <button type="submit">Criar Usuário</button>
+</form>

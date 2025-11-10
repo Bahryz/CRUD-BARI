@@ -1,0 +1,9 @@
+@model UserViewModel
+<h2>Excluir Usuário</h2>
+<form asp-action="Excluir" method="post">
+    <label>Domínio:</label>
+    <input type="text" name="Dominio" required /><br>
+    <label>Login:</label>
+    <input type="text" name="Login" required /><br>
+    <button type="submit">Excluir</button>
+</form>

@@ -1,0 +1,11 @@
+@model UserViewModel
+<h2>Resetar Senha</h2>
+<form asp-action="ResetSenha" method="post">
+    <label>Domínio:</label>
+    <input type="text" name="Dominio" required /><br>
+    <label>Login:</label>
+    <input type="text" name="Login" required /><br>
+    <label>Nova Senha:</label>
+    <input type="password" name="NovoSenha" required /><br>
+    <button type="submit">Resetar</button>
+</form>
