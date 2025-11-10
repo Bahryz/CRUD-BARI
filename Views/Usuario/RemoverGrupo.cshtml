@@ -1,50 +1,32 @@
 @model UserViewModel
 @{
-    Layout = null;
+    ViewData["Title"] = "Remover Usuário do Grupo";
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Remover Usuário do Grupo - Gerenciador AD</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/site.css" />
-</head>
-<body style="background:#f4f7fa;">
-    <nav class="navbar navbar-light bg-white shadow-sm mb-5">
-        <div class="container justify-content-center">
-            <a href="/" class="btn btn-outline-primary me-3">&larr; Menu Principal</a>
-            <span class="navbar-brand fw-bold fs-4 text-primary">Gerenciador de Usuários AD</span>
+
+<h2 class="mb-4 text-center fw-bold">Remover do Grupo</h2>
+<p class="sub-title mb-4 text-center">Defina o usuário e o grupo.</p>
+
+@if (ViewBag.MensagemSucesso != null)
+{
+    <div class="alert alert-success">@ViewBag.MensagemSucesso</div>
+}
+@if (ViewBag.MensagemErro != null)
+{
+    <div class="alert alert-danger">@ViewBag.MensagemErro</div>
+}
+
+<form asp-action="RemoverGrupo" method="post">
+    <div class="mb-3">
+        <label asp-for="Login" class="form-label"></label>
+        <input asp-for="Login" class="form-control" placeholder="@Model.Dominio\" />
         </div>
-    </nav>
-    <main class="container-main d-flex flex-column align-items-center">
-        <div class="card shadow-sm mx-auto w-100" style="max-width:480px;">
-            <div class="card-body px-4">
-                <h2 class="mb-4 text-center fw-bold">Remover Usuário do Grupo</h2>
-                @if (ViewBag.MensagemSucesso != null) {
-                    <div class="alert alert-success">@ViewBag.MensagemSucesso</div>
-                }
-                @if (ViewBag.MensagemErro != null) {
-                    <div class="alert alert-danger">@ViewBag.MensagemErro</div>
-                }
-                <form asp-action="RemoverGrupo" method="post">
-                    <div class="mb-3">
-                        <label class="form-label">Domínio:</label>
-                        <input type="text" name="Dominio" class="form-control" required />
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Login do Usuário:</label>
-                        <input type="text" name="Login" class="form-control" required />
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Grupo:</label>
-                        <input type="text" name="Grupo" class="form-control" required />
-                    </div>
-                    <button type="submit" class="btn btn-warning w-100">Remover</button>
-                </form>
-            </div>
+    <div class="mb-3">
+        <label asp-for="Grupo" class="form-label"></label>
+        <input asp-for="Grupo" class="form-control" />
         </div>
-    </main>
-</body>
-</html>
+
+    <div class="d-grid gap-2 mt-4">
+        <button type="submit" class="btn btn-primary btn-lg"><span>👥</span> Remover</button>
+        <a href="/" class="btn btn-outline-secondary mt-2">Voltar ao Menu</a>
+    </div>
+</form>

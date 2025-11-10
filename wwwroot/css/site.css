@@ -1,23 +1,31 @@
 :root {
-    --primary: #00a8ff;        /* Azul Bari */
-    --primary-dark: #0075bb;   /* Azul Bari escuro */
-    --bg-main: #121316;        /* Preto profundo */
-    --card-bg: #232427;        /* Cinza grafite escuro */
+    --primary: #00a8ff;
+    --primary-dark: #0075bb;
+    --bg-main: #121316;
+    --card-bg: #232427;
     --card-border: #1e1f21;
     --text-main: #fff;
     --text-secondary: #c4cbdf;
-    --border-radius: 20px;
+    --border-radius-lg: 14px;
+    --border-radius-sm: 10px;
     --shadow-main: 0 6px 32px 0 rgba(0,0,0,0.23);
     --nav-height: 105px;
 }
 
-html, body {
-    min-height: 100vh;
+/* Garante o fundo escuro em toda a página */
+html {
     background: var(--bg-main);
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg-main); 
     color: var(--text-main);
     font-family: 'Segoe UI', 'Montserrat', Arial, Helvetica, sans-serif;
-    font-size: 17px;
+    font-size: 1.05rem; 
     letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 nav.navbar {
@@ -55,28 +63,28 @@ nav.navbar {
     color: var(--text-main);
     font-size: 2.3rem;
     font-family: 'Montserrat', 'Segoe UI', Arial, Helvetica, sans-serif;
-    letter-spacing: 3.5px;
+    letter-spacing: 1.5px;
     font-weight: 700;
     text-shadow: 0 4px 24px #002a3e46;
     line-height: 1.13;
 }
 
 .container-main {
-    min-height: 86vh;
+    min-height: calc(100vh - var(--nav-height) - 36px);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    padding-bottom: 36px;
 }
 
 .card {
     background: var(--card-bg);
-    border: 2.5px solid var(--card-border);
-    border-radius: var(--border-radius);
+    border: 2px solid var(--card-border);
+    border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-main);
     max-width: 450px;
     width: 100%;
-    padding: 48px 38px 34px 38px;
-    margin-top: 10vh;
+    padding: 42px 38px;
 }
 
 .card-body {
@@ -101,71 +109,48 @@ h2, h1 {
     font-weight: 500;
 }
 
-.form-label {
-    color: var(--text-secondary);
-    font-weight: 500;
-    font-size: 1rem;
-    margin-bottom: 2px;
-    padding-left: 2px;
-    font-family: 'Montserrat', 'Segoe UI', Arial, Helvetica, sans-serif;
-}
-
-.form-control {
-    background: #232327;
-    color: var(--text-main);
-    border: 1.6px solid #24272a;
-    border-radius: 11px;
-    padding: 12px 18px;
-    margin-bottom: 17px;
-    font-size: 1.03rem;
-    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-    box-shadow: none;
-    transition: border 0.13s, background 0.23s;
-}
-
-.form-control:focus {
-    border-color: var(--primary);
-    background: #181a1b;
-    color: #fff;
-    box-shadow: 0 2px 18px 0 rgba(0,168,255,0.09);
-    outline: none;
-}
-
-.d-grid .btn {
-    margin-bottom: 0 !important;
-}
-
+/* Esta regra corrige o texto que desaparece e o alinha à esquerda */
 .btn-primary {
     background: var(--primary);
-    color: #fff;
+    color: #fff; /* Garante que o texto é branco e visível */
     border: none;
-    border-radius: 14px;
-    font-size: 1.24rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 1.24rem; /* Garante que o texto tem tamanho */
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     font-weight: 700;
     display: flex !important;
     align-items: center;
-    justify-content: center;
+    
+    /* Alinha o texto à esquerda (o seu pedido "fixo") */
+    justify-content: flex-start;
+    
     gap: 14px;
     min-height: 58px;
     margin-bottom: 23px;
-    padding: 10px 0;
+    
+    /* Dá o espaçamento à esquerda */
+    padding: 10px 24px;
+    
     letter-spacing: 0.6px;
     box-shadow: 0 2px 14px 0 rgba(0,168,255,0.07);
-    transition: background 0.19s, transform 0.14s;
+    transition: background 0.19s;
 }
+
 
 .btn-primary:hover, .btn-primary:active {
     background: var(--primary-dark);
     color: #fff;
-    transform: translateY(-2px) scale(1.018);
-    box-shadow: 0 4px 28px 0 rgba(0,168,255,0.21);
+    transform: none; 
+    box-shadow: 0 2px 14px 0 rgba(0,168,255,0.07);
 }
 
 .btn-primary span {
-    font-size: 1.35em;
-    margin-right: 9px;
+    font-size: 1.2em;
 }
+
+/* ... (O resto das regras como .form-control, a:hover, etc. 
+    podem ser coladas aqui se estiverem em falta, 
+    mas a regra .btn-primary é a mais importante para o seu problema) ... */
 
 a, a:visited {
     color: var(--primary);
@@ -177,17 +162,16 @@ a:hover {
 }
 
 .alert-success, .alert-danger {
-    border-radius: 11px;
+    border-radius: var(--border-radius-sm);
     font-size: 1.07rem;
     font-weight: 500;
     margin-bottom: 1.2em;
 }
 
-/* Corrige destaque de botões, remove tooltip custom */
 .btn[title]:after { display: none !important; }
 
 @media (max-width: 600px) {
-    .card { padding: 25px 7vw 18px 7vw; }
+    .card { padding: 24px 7vw; }
     .logo-bari { width: 67px; height: 44px; }
     .bari-header { gap: 9px; }
     .bari-title { font-size: 1.36rem; }
