@@ -190,34 +190,41 @@ namespace GerenciadorAD_Web.Controllers
             return View(); // Retorna o arquivo Views/Usuario/RemoverGrupo.cshtml
         }
 
-		// POST: /Usuario/RemoverGrupo
-		// Este método RECEBE os dados do formulário
-		[HttpPost]
-		public IActionResult RemoverGrupo([FromForm] UserViewModel model)
-		{
-			try
-			{
-				using (var contexto = new PrincipalContext(ContextType.Domain, model.Dominio))
-				{
-					var usuario = UserPrincipal.FindByIdentity(contexto, model.Login);
-					var grupoAD = GroupPrincipal.FindByIdentity(contexto, model.Grupo);
-					if (usuario == null || grupoAD == null)
-					{
+        // POST: /Usuario/RemoverGrupo
+        // Este método RECEBE os dados do formulário
+        [HttpPost]
+        public IActionResult RemoverGrupo([FromForm] UserViewModel model)
+        {
+            try
+            {
+                using (var contexto = new PrincipalContext(ContextType.Domain, model.Dominio))
+                {
+                    var usuario = UserPrincipal.FindByIdentity(contexto, model.Login);
+                    var grupoAD = GroupPrincipal.FindByIdentity(contexto, model.Grupo);
+                    if (usuario == null || grupoAD == null)
+                    {
                         ViewBag.MensagemErro = "Usuário ou grupo não encontrado.";
                         return View("RemoverGrupo");
-					}
-					grupoAD.Members.Remove(usuario);
-					grupoAD.Save();
+                    }
+                    grupoAD.Members.Remove(usuario);
+                    grupoAD.Save();
 
                     ViewBag.MensagemSucesso = "Usuário removido do grupo.";
                     return View("RemoverGrupo");
-				}
-			}
-			catch (Exception ex)
-			{
+                }
+            }
+            catch (Exception ex)
+            {
                 ViewBag.MensagemErro = "Erro: " + ex.Message;
                 return View("RemoverGrupo");
-			}
-		}
+            }
+        }
+        
+        [HttpGet]
+        public IActionResult Index()
+        {
+        return View();
+        }
+
 	}
 }

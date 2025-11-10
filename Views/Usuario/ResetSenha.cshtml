@@ -1,30 +1,50 @@
 @model UserViewModel
-
-<nav class="mb-4">
-    <a asp-controller="Usuario" asp-action="Criar" class="btn btn-primary me-2 mb-2">Criar Usuário</a>
-    <a asp-controller="Usuario" asp-action="ResetSenha" class="btn btn-secondary me-2 mb-2">Resetar Senha</a>
-    <a asp-controller="Usuario" asp-action="Excluir" class="btn btn-danger me-2 mb-2">Excluir Usuário</a>
-    <a asp-controller="Usuario" asp-action="AdicionarGrupo" class="btn btn-info me-2 mb-2">Adicionar ao Grupo</a>
-    <a asp-controller="Usuario" asp-action="RemoverGrupo" class="btn btn-warning me-2 mb-2">Remover do Grupo</a>
-</nav>
-
-<div class="card shadow-sm mx-auto" style="max-width: 400px;">
-    <div class="card-body">
-        <h2 class="mb-4">Resetar Senha</h2>
-        <form asp-action="ResetSenha" method="post">
-            <div class="mb-3">
-                <label class="form-label">Domínio:</label>
-                <input type="text" name="Dominio" class="form-control" required />
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resetar Senha - Gerenciador AD</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body style="background:#f4f7fa;">
+    <nav class="navbar navbar-light bg-white shadow-sm mb-5">
+        <div class="container justify-content-center">
+            <a href="/" class="btn btn-outline-primary me-3">&larr; Menu Principal</a>
+            <span class="navbar-brand fw-bold fs-4 text-primary">Gerenciador de Usuários AD</span>
+        </div>
+    </nav>
+    <main class="container-main d-flex flex-column align-items-center">
+        <div class="card shadow-sm mx-auto w-100" style="max-width:480px;">
+            <div class="card-body px-4">
+                <h2 class="mb-4 text-center fw-bold">Resetar Senha</h2>
+                @if (ViewBag.MensagemSucesso != null) {
+                    <div class="alert alert-success">@ViewBag.MensagemSucesso</div>
+                }
+                @if (ViewBag.MensagemErro != null) {
+                    <div class="alert alert-danger">@ViewBag.MensagemErro</div>
+                }
+                <form asp-action="ResetSenha" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Domínio:</label>
+                        <input type="text" name="Dominio" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Login:</label>
+                        <input type="text" name="Login" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nova Senha:</label>
+                        <input type="password" name="NovoSenha" class="form-control" required />
+                    </div>
+                    <button type="submit" class="btn btn-secondary w-100">Resetar</button>
+                </form>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Login:</label>
-                <input type="text" name="Login" class="form-control" required />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Nova Senha:</label>
-                <input type="password" name="NovoSenha" class="form-control" required />
-            </div>
-            <button type="submit" class="btn btn-secondary w-100">Resetar</button>
-        </form>
-    </div>
-</div>
+        </div>
+    </main>
+</body>
+</html>

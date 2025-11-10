@@ -1,31 +1,35 @@
 @{
-    ViewData["Title"] = "Gerenciador do Active Directory";
+    Layout = null;
 }
-
-<div class="text-center">
-    <h1 class="display-4">Gerenciador de Usuários AD</h1>
-    <p>Selecione uma operação abaixo:</p>
-</div>
-
-<div class="list-group">
-    
-    <a asp-controller="Usuario" asp-action="Criar" class="list-group-item list-group-item-action">
-        1. Criar Novo Usuário
-    </a>
-
-    <a asp-controller="Usuario" asp-action="ResetSenha" class="list-group-item list-group-item-action">
-        2. Resetar Senha de Usuário
-    </a>
-
-    <a asp-controller="Usuario" asp-action="AdicionarGrupo" class="list-group-item list-group-item-action">
-        3. Adicionar Usuário a um Grupo
-    </a>
-
-    <a asp-controller="Usuario" asp-action="RemoverGrupo" class="list-group-item list-group-item-action">
-        4. Remover Usuário de um Grupo
-    </a>
-
-    <a asp-controller="Usuario" asp-action="Excluir" class="list-group-item list-group-item-action list-group-item-danger">
-        5. Excluir Usuário
-    </a>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador de Usuários AD</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body style="background:#f4f7fa;">
+    <nav class="navbar navbar-light bg-white shadow-sm mb-5">
+        <div class="container justify-content-center">
+            <span class="navbar-brand fw-bold fs-4 text-primary">Gerenciador de Usuários AD</span>
+        </div>
+    </nav>
+    <main class="container-main d-flex flex-column align-items-center">
+        <div class="card shadow-sm mx-auto" style="max-width:480px;">
+            <div class="card-body px-4">
+                <h2 class="mb-4 text-center fw-bold">Menu Principal</h2>
+                <p class="sub-title mb-4 text-center">Selecione uma operação:</p>
+                <div class="d-grid gap-3">
+                    <a href="/Usuario/Criar" class="btn btn-primary btn-lg"><span>&#x1F464;</span> Criar Usuário</a>
+                    <a href="/Usuario/ResetSenha" class="btn btn-secondary btn-lg"><span>&#x1F511;</span> Resetar Senha</a>
+                    <a href="/Usuario/AdicionarGrupo" class="btn btn-info btn-lg"><span>&#x1F465;</span> Adicionar ao Grupo</a>
+                    <a href="/Usuario/RemoverGrupo" class="btn btn-warning btn-lg"><span>&#x1F465;</span> Remover do Grupo</a>
+                    <a href="/Usuario/Excluir" class="btn btn-danger btn-lg"><span>&#x274C;</span> Excluir Usuário</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
