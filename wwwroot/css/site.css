@@ -1,6 +1,6 @@
 :root {
-    --primary: #00a8ff;
-    --primary-dark: #0075bb;
+    --primary: #00a8ff;        /* Azul Bari */
+    --primary-dark: #0075bb;   /* Azul Bari escuro */
     --bg-main: #121316;
     --card-bg: #232427;
     --card-border: #1e1f21;
@@ -9,20 +9,15 @@
     --border-radius-lg: 14px;
     --border-radius-sm: 10px;
     --shadow-main: 0 6px 32px 0 rgba(0,0,0,0.23);
-    --nav-height: 105px;
+    --nav-height: 110px;
 }
 
-/* Garante o fundo escuro em toda a página */
-html {
+html, body {
     background: var(--bg-main);
-}
-
-body {
     min-height: 100vh;
-    background: var(--bg-main); 
     color: var(--text-main);
     font-family: 'Segoe UI', 'Montserrat', Arial, Helvetica, sans-serif;
-    font-size: 1.05rem; 
+    font-size: 1.06rem;
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -32,9 +27,9 @@ nav.navbar {
     background: var(--bg-main) !important;
     border-bottom: 1px solid var(--card-border);
     min-height: var(--nav-height);
-    margin-bottom: 36px;
     box-shadow: var(--shadow-main);
     justify-content: center !important;
+    margin-bottom: 36px;
 }
 
 .bari-header {
@@ -45,15 +40,15 @@ nav.navbar {
     width: 100%;
     min-height: var(--nav-height);
     margin: 0 auto;
-    padding: 16px 0;
+    padding: 18px 0 10px 0;
     flex-wrap: wrap;
 }
 
 .logo-bari {
-    width: 102px;
-    height: 66px;
+    width: 108px;
+    height: 75px;
     object-fit: contain;
-    border-radius: 16px;
+    border-radius: 18px;
     background: #fff2;
     box-shadow: 0 4px 30px 0 rgba(0,0,0,0.10);
     margin-right: 12px;
@@ -61,7 +56,7 @@ nav.navbar {
 
 .bari-title {
     color: var(--text-main);
-    font-size: 2.3rem;
+    font-size: 2.35rem;
     font-family: 'Montserrat', 'Segoe UI', Arial, Helvetica, sans-serif;
     letter-spacing: 1.5px;
     font-weight: 700;
@@ -109,13 +104,46 @@ h2, h1 {
     font-weight: 500;
 }
 
-/* Esta regra corrige o texto que desaparece e o alinha à esquerda */
-.btn-primary {
-    background: var(--primary);
-    color: #fff; /* <-- ESTA LINHA CORRIGE O PROBLEMA */
+.form-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 2px;
+    padding-left: 2px;
+    font-family: 'Montserrat', 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+.form-control {
+    background: #232327;
+    color: var(--text-main);
+    border: 1.6px solid #24272a;
+    border-radius: 11px;
+    padding: 12px 18px;
+    margin-bottom: 17px;
+    font-size: 1.03rem;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    box-shadow: none;
+    transition: border 0.13s, background 0.23s;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    background: #181a1b;
+    color: #fff;
+    box-shadow: 0 2px 18px 0 rgba(0,168,255,0.09);
+    outline: none;
+}
+
+.d-grid .btn {
+    margin-bottom: 0 !important;
+}
+
+.btn-primary, .btn-primary:visited, .btn-primary:focus, .btn-primary:active {
+    background: var(--primary) !important;
+    color: #fff !important;
     border: none;
     border-radius: var(--border-radius-sm);
-    font-size: 1.24rem; 
+    font-size: 1.22rem;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     font-weight: 700;
     display: flex !important;
@@ -125,32 +153,29 @@ h2, h1 {
     min-height: 58px;
     margin-bottom: 23px;
     padding: 10px 24px;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.54px;
     box-shadow: 0 2px 14px 0 rgba(0,168,255,0.07);
     transition: background 0.19s;
+    text-decoration: none;
 }
 
-
-.btn-primary:hover, .btn-primary:active {
-    background: var(--primary-dark);
-    color: #fff;
-    transform: none; 
-    box-shadow: 0 2px 14px 0 rgba(0,168,255,0.07);
+.btn-primary:hover {
+    background: var(--primary-dark) !important;
+    color: #fff !important;
+    transform: none;
+    box-shadow: 0 2px 14px 0 rgba(0,168,255,0.19);
+    text-decoration: none;
 }
 
 .btn-primary span {
-    font-size: 1.2em;
+    font-size: 1.38em;
 }
 
-/* ... (O resto das regras como .form-control, a:hover, etc. 
-    podem ser coladas aqui se estiverem em falta, 
-    mas a regra .btn-primary é a mais importante para o seu problema) ... */
-
-a, a:visited {
+a:not(.btn), a:not(.btn):visited {
     color: var(--primary);
     text-decoration: none;
 }
-a:hover {
+a:not(.btn):hover {
     color: var(--text-main);
     text-decoration: underline;
 }
@@ -165,8 +190,12 @@ a:hover {
 .btn[title]:after { display: none !important; }
 
 @media (max-width: 600px) {
-    .card { padding: 24px 7vw; }
-    .logo-bari { width: 67px; height: 44px; }
+    .card {
+        padding: 24px 7vw;
+    }
+    .logo-bari {
+        width: 67px; height: 46px;
+    }
     .bari-header { gap: 9px; }
     .bari-title { font-size: 1.36rem; }
 }

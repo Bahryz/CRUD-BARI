@@ -104,4 +104,4 @@ C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\refint\GerenciadorAD_
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\GerenciadorAD_Web.pdb
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\GerenciadorAD_Web.genruntimeconfig.cache
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\ref\GerenciadorAD_Web.dll
-C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\compressed\w00qj762z0-97sdq7i6gb.gz
+C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\compressed\w00qj762z0-q9td15vtp4.gz
