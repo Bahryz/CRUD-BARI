@@ -15,9 +15,10 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// --- ESTA É A LINHA QUE FALTAVA ---
+// --- CORRIGIDO ---
+// Removemos o comentário para ativar os ficheiros CSS, JS, etc.
 app.UseStaticFiles();
-// ----------------------------------
+// -----------------
 
 app.UseRouting();
 

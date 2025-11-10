@@ -1,20 +1,30 @@
-<nav>
-    <a asp-controller="Usuario" asp-action="Criar">Criar Usuário</a> |
-    <a asp-controller="Usuario" asp-action="ResetSenha">Resetar Senha</a> |
-    <a asp-controller="Usuario" asp-action="Excluir">Excluir Usuário</a> |
-    <a asp-controller="Usuario" asp-action="AdicionarGrupo">Adicionar ao Grupo</a> |
-    <a asp-controller="Usuario" asp-action="RemoverGrupo">Remover do Grupo</a>
-</nav>
-<br>
-
 @model UserViewModel
-<h2>Resetar Senha</h2>
-<form asp-action="ResetSenha" method="post">
-    <label>Domínio:</label>
-    <input type="text" name="Dominio" required /><br>
-    <label>Login:</label>
-    <input type="text" name="Login" required /><br>
-    <label>Nova Senha:</label>
-    <input type="password" name="NovoSenha" required /><br>
-    <button type="submit">Resetar</button>
-</form>
+
+<nav class="mb-4">
+    <a asp-controller="Usuario" asp-action="Criar" class="btn btn-primary me-2 mb-2">Criar Usuário</a>
+    <a asp-controller="Usuario" asp-action="ResetSenha" class="btn btn-secondary me-2 mb-2">Resetar Senha</a>
+    <a asp-controller="Usuario" asp-action="Excluir" class="btn btn-danger me-2 mb-2">Excluir Usuário</a>
+    <a asp-controller="Usuario" asp-action="AdicionarGrupo" class="btn btn-info me-2 mb-2">Adicionar ao Grupo</a>
+    <a asp-controller="Usuario" asp-action="RemoverGrupo" class="btn btn-warning me-2 mb-2">Remover do Grupo</a>
+</nav>
+
+<div class="card shadow-sm mx-auto" style="max-width: 400px;">
+    <div class="card-body">
+        <h2 class="mb-4">Resetar Senha</h2>
+        <form asp-action="ResetSenha" method="post">
+            <div class="mb-3">
+                <label class="form-label">Domínio:</label>
+                <input type="text" name="Dominio" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Login:</label>
+                <input type="text" name="Login" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nova Senha:</label>
+                <input type="password" name="NovoSenha" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-secondary w-100">Resetar</button>
+        </form>
+    </div>
+</div>
