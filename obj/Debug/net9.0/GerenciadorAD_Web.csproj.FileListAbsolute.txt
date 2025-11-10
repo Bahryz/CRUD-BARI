@@ -32,10 +32,8 @@ C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\GerenciadorAD_Web.sou
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
-C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\scopedcss\bundle\GerenciadorAD_Web.styles.css
-C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\scopedcss\projectbundle\GerenciadorAD_Web.bundle.scp.css
-C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\compressed\w00qj762z0-mek3q6ykpq.gz
+C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\compressed\u81ibrulwe-ivjfxlmvre.gz
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\compressed\pvggw1nsad-61n19gt1b8.gz
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\compressed\b090j4h3if-xtxxf3hu2r.gz
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\compressed\rub1xjsdm1-bqjiyaj88i.gz
@@ -97,8 +95,6 @@ C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\compressed\2c62pyr73g
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\compressed\85jnw796tt-muycvpuwrr.gz
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\compressed\uwhdvmvjav-87fc7y1x7t.gz
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\compressed\r4rb6nuk7s-mlv21k5csn.gz
-C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\compressed\35laxq2dfu-go5ce18b7c.gz
-C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\compressed\qsl13ue5dt-go5ce18b7c.gz
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\phbah\Desktop\CRUDBARI\CRUD-BARI\obj\Debug\net9.0\staticwebassets.development.json

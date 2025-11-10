@@ -16,7 +16,6 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // --- CORRIGIDO ---
-// Removemos o comentário para ativar os ficheiros CSS, JS, etc.
 app.UseStaticFiles();
 // -----------------
 
