@@ -3,34 +3,49 @@
     ViewData["Title"] = "Criar Usuário";
 }
 
-<h2 class="mb-4 text-center fw-bold">Criar Novo Usuário</h2>
-<p class="sub-title mb-4 text-center">Insira os dados para o novo perfil.</p>
-
-@if (ViewBag.MensagemSucesso != null)
-{
-    <div class="alert alert-success">@ViewBag.MensagemSucesso</div>
-}
-@if (ViewBag.MensagemErro != null)
-{
-    <div class="alert alert-danger">@ViewBag.MensagemErro</div>
-}
-
-<form asp-action="Criar" method="post">
-    <div class="mb-3">
-        <label asp-for="Login" class="form-label"></label>
-        <input asp-for="Login" class="form-control" placeholder="@Model.Dominio\" />
-        </div>
-    <div class="mb-3">
-        <label asp-for="Senha" class="form-label">Senha Temporária</label>
-        <input asp-for="Senha" class="form-control" type="password" />
-        </div>
-    <div class="mb-3">
-        <label asp-for="Grupo" class="form-label">Nome do Grupo (Opcional)</label>
-        <input asp-for="Grupo" class="form-control" />
-        </div>
-    
-    <div class="d-grid gap-2 mt-4">
-        <button type="submit" class="btn btn-primary btn-lg"><span>👤</span> Criar Usuário</button>
-        <a href="/" class="btn btn-outline-secondary mt-2">Voltar ao Menu</a>
+<nav class="navbar shadow-sm mb-4">
+    <div class="container bari-header">
+        <img src="/img/logo-bari.png" alt="Logo Bari" class="logo-bari" />
+        <span class="bari-title">Gerenciador de Usuários AD</span>
     </div>
-</form>
+</nav>
+
+<main class="container-main">
+    <div class="card shadow-sm mx-auto">
+        <div class="card-body px-4">
+
+            <h2 class="mb-4 text-center fw-bold">Criar Novo Usuário</h2>
+            <p class="sub-title mb-4 text-center">Insira os dados para o novo perfil.</p>
+
+            @if (ViewBag.MensagemSucesso != null)
+            {
+                <div class="alert alert-success">@ViewBag.MensagemSucesso</div>
+            }
+            @if (ViewBag.MensagemErro != null)
+            {
+                <div class="alert alert-danger">@ViewBag.MensagemErro</div>
+            }
+
+            <form asp-action="Criar" method="post">
+                <div class="mb-3">
+                    <label asp-for="Login" class="form-label"></label>
+                    <input asp-for="Login" class="form-control" placeholder="@Model.Dominio\" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Senha" class="form-label">Senha Temporária</label>
+                    <input asp-for="Senha" class="form-control" type="password" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Grupo" class="form-label">Nome do Grupo (Opcional)</label>
+                    <input asp-for="Grupo" class="form-control" />
+                </div>
+
+                <div class="d-grid gap-2 mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg"><span>👤</span> Criar Usuário</button>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary mt-2">Voltar ao Menu</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</main>
