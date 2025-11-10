@@ -44,9 +44,13 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
-            "Novell.Directory.Ldap.NETStandard": {
+            "System.DirectoryServices": {
               "target": "Package",
-              "version": "[4.0.0, )"
+              "version": "[9.0.10, )"
+            },
+            "System.DirectoryServices.AccountManagement": {
+              "target": "Package",
+              "version": "[9.0.10, )"
             }
           },
           "imports": [

@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "n7tMvmY1gfc=",
+  "dgSpecHash": "qHC53htzAqQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\phbah\\Desktop\\CRUDBARI\\CRUD-BARI\\GerenciadorAD_Web.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\phbah\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.2\\microsoft.extensions.dependencyinjection.abstractions.9.0.2.nupkg.sha512",
-    "C:\\Users\\phbah\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.2\\microsoft.extensions.logging.abstractions.9.0.2.nupkg.sha512",
-    "C:\\Users\\phbah\\.nuget\\packages\\novell.directory.ldap.netstandard\\4.0.0\\novell.directory.ldap.netstandard.4.0.0.nupkg.sha512"
+    "C:\\Users\\phbah\\.nuget\\packages\\system.configuration.configurationmanager\\9.0.10\\system.configuration.configurationmanager.9.0.10.nupkg.sha512",
+    "C:\\Users\\phbah\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.10\\system.diagnostics.eventlog.9.0.10.nupkg.sha512",
+    "C:\\Users\\phbah\\.nuget\\packages\\system.directoryservices\\9.0.10\\system.directoryservices.9.0.10.nupkg.sha512",
+    "C:\\Users\\phbah\\.nuget\\packages\\system.directoryservices.accountmanagement\\9.0.10\\system.directoryservices.accountmanagement.9.0.10.nupkg.sha512",
+    "C:\\Users\\phbah\\.nuget\\packages\\system.directoryservices.protocols\\9.0.10\\system.directoryservices.protocols.9.0.10.nupkg.sha512",
+    "C:\\Users\\phbah\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.10\\system.security.cryptography.protecteddata.9.0.10.nupkg.sha512"
   ],
   "logs": []
 }

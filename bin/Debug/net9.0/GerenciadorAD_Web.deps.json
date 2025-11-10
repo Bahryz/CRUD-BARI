@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v9.0": {
       "GerenciadorAD_Web/1.0.0": {
         "dependencies": {
+          "System.DirectoryServices": "9.0.10",
           "System.DirectoryServices.AccountManagement": "9.0.10"
         },
         "runtime": {

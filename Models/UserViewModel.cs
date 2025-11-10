@@ -1,12 +1,15 @@
-namespace GerenciadorAD_Web.Models // <-- Adicionámos esta linha e as { }
+namespace GerenciadorAD_Web.Models
 {
     // Model para entrada de dados nos formulários
     public class UserViewModel
     {
-        public string Dominio { get; set; }
-        public string Login { get; set; }
-        public string Senha { get; set; }
-        public string NovoSenha { get; set; }
-        public string Grupo { get; set; }
+        // Corrigido: Inicializado para string.Empty para evitar aviso
+        public string Dominio { get; set; } = string.Empty;
+
+        // Corrigido: Adicionado '?' para indicar que podem ser nulos
+        public string? Login { get; set; }
+        public string? Senha { get; set; }
+        public string? NovoSenha { get; set; }
+        public string? Grupo { get; set; }
     }
 }

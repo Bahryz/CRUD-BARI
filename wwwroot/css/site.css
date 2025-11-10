@@ -1,0 +1,194 @@
+:root {
+    --primary: #00a8ff;        /* Azul Bari */
+    --primary-dark: #0075bb;   /* Azul Bari escuro */
+    --bg-main: #121316;        /* Preto profundo */
+    --card-bg: #232427;        /* Cinza grafite escuro */
+    --card-border: #1e1f21;
+    --text-main: #fff;
+    --text-secondary: #c4cbdf;
+    --border-radius: 20px;
+    --shadow-main: 0 6px 32px 0 rgba(0,0,0,0.23);
+    --nav-height: 105px;
+}
+
+html, body {
+    min-height: 100vh;
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Segoe UI', 'Montserrat', Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    letter-spacing: 0.01em;
+}
+
+nav.navbar {
+    background: var(--bg-main) !important;
+    border-bottom: 1px solid var(--card-border);
+    min-height: var(--nav-height);
+    margin-bottom: 36px;
+    box-shadow: var(--shadow-main);
+    justify-content: center !important;
+}
+
+.bari-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    min-height: var(--nav-height);
+    margin: 0 auto;
+    padding: 16px 0;
+    flex-wrap: wrap;
+}
+
+.logo-bari {
+    width: 102px;
+    height: 66px;
+    object-fit: contain;
+    border-radius: 16px;
+    background: #fff2;
+    box-shadow: 0 4px 30px 0 rgba(0,0,0,0.10);
+    margin-right: 12px;
+}
+
+.bari-title {
+    color: var(--text-main);
+    font-size: 2.3rem;
+    font-family: 'Montserrat', 'Segoe UI', Arial, Helvetica, sans-serif;
+    letter-spacing: 3.5px;
+    font-weight: 700;
+    text-shadow: 0 4px 24px #002a3e46;
+    line-height: 1.13;
+}
+
+.container-main {
+    min-height: 86vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 2.5px solid var(--card-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-main);
+    max-width: 450px;
+    width: 100%;
+    padding: 48px 38px 34px 38px;
+    margin-top: 10vh;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+h2, h1 {
+    color: var(--text-main);
+    text-align: center;
+    margin: 0 0 26px 0;
+    font-weight: 700;
+    font-size: 2.15rem;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+.sub-title {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+.form-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 2px;
+    padding-left: 2px;
+    font-family: 'Montserrat', 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+.form-control {
+    background: #232327;
+    color: var(--text-main);
+    border: 1.6px solid #24272a;
+    border-radius: 11px;
+    padding: 12px 18px;
+    margin-bottom: 17px;
+    font-size: 1.03rem;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    box-shadow: none;
+    transition: border 0.13s, background 0.23s;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    background: #181a1b;
+    color: #fff;
+    box-shadow: 0 2px 18px 0 rgba(0,168,255,0.09);
+    outline: none;
+}
+
+.d-grid .btn {
+    margin-bottom: 0 !important;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.24rem;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-height: 58px;
+    margin-bottom: 23px;
+    padding: 10px 0;
+    letter-spacing: 0.6px;
+    box-shadow: 0 2px 14px 0 rgba(0,168,255,0.07);
+    transition: background 0.19s, transform 0.14s;
+}
+
+.btn-primary:hover, .btn-primary:active {
+    background: var(--primary-dark);
+    color: #fff;
+    transform: translateY(-2px) scale(1.018);
+    box-shadow: 0 4px 28px 0 rgba(0,168,255,0.21);
+}
+
+.btn-primary span {
+    font-size: 1.35em;
+    margin-right: 9px;
+}
+
+a, a:visited {
+    color: var(--primary);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--text-main);
+    text-decoration: underline;
+}
+
+.alert-success, .alert-danger {
+    border-radius: 11px;
+    font-size: 1.07rem;
+    font-weight: 500;
+    margin-bottom: 1.2em;
+}
+
+/* Corrige destaque de botões, remove tooltip custom */
+.btn[title]:after { display: none !important; }
+
+@media (max-width: 600px) {
+    .card { padding: 25px 7vw 18px 7vw; }
+    .logo-bari { width: 67px; height: 44px; }
+    .bari-header { gap: 9px; }
+    .bari-title { font-size: 1.36rem; }
+}
