@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "Gerenciador do Active Directory";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Gerenciador de Usuários AD</h1>
+    <p>Selecione uma operação abaixo:</p>
+</div>
+
+<div class="list-group">
+    
+    <a asp-controller="Usuario" asp-action="Criar" class="list-group-item list-group-item-action">
+        1. Criar Novo Usuário
+    </a>
+
+    <a asp-controller="Usuario" asp-action="ResetSenha" class="list-group-item list-group-item-action">
+        2. Resetar Senha de Usuário
+    </a>
+
+    <a asp-controller="Usuario" asp-action="AdicionarGrupo" class="list-group-item list-group-item-action">
+        3. Adicionar Usuário a um Grupo
+    </a>
+
+    <a asp-c-controller="Usuario" asp-action="RemoverGrupo" class="list-group-item list-group-item-action">
+        4. Remover Usuário de um Grupo
+    </a>
+
+    <a asp-controller="Usuario" asp-action="Excluir" class="list-group-item list-group-item-action list-group-item-danger">
+        5. Excluir Usuário
+    </a>
+</div>

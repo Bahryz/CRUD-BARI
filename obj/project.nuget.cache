@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "96b3b3shzt0=",
+  "dgSpecHash": "DYnDhLhkVi8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\phbah\\Desktop\\GerenciadorAD_Web\\GerenciadorAD_Web.csproj",
+  "projectFilePath": "C:\\Users\\phbah\\Desktop\\CRUDBARI\\CRUD-BARI\\GerenciadorAD_Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\phbah\\.nuget\\packages\\system.configuration.configurationmanager\\9.0.10\\system.configuration.configurationmanager.9.0.10.nupkg.sha512",
     "C:\\Users\\phbah\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.10\\system.diagnostics.eventlog.9.0.10.nupkg.sha512",
