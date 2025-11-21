@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GerenciadorAD_Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+edaaa723a35d5bf8446f20e41f513996e0f61ea0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be3a4d3b98581d7fa5ba0bb76614000105c9d7d7")]
 [assembly: System.Reflection.AssemblyProductAttribute("GerenciadorAD_Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GerenciadorAD_Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

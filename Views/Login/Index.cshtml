@@ -11,51 +11,76 @@
     <link rel="stylesheet" href="~/css/site.css" /> 
     
     <style>
-        /* --- TEMA ESCURO (DARK MODE) --- */
+        /* --- PALETA BARI (Dark Mode) --- */
         body { 
-            background-color: #121212; /* Preto profundo (Fundo Geral) */
-            color: #e0e0e0; /* Texto claro */
+            background-color: #121212; /* Fundo Preto Profundo */
+            color: #e0e0e0; 
             height: 100vh; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative; /* Importante para o posicionamento absoluto funcionar */
+        }
+
+        /* --- HEADER DE CANTO (NOVO) --- */
+        .system-badge {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            color: rgba(255, 255, 255, 0.6); /* Branco com transparência elegante */
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px; /* Espaçamento para ar "Premium" */
+            text-transform: uppercase;
+            border-left: 3px solid #003366; /* Detalhe BARI sutil */
+            padding-left: 15px;
         }
         
         .card-login { 
-            background-color: #1e1e1e; /* Cinza Escuro (Cartão) */
-            border: 1px solid #333; /* Borda sutil */
-            border-radius: 12px; 
+            background-color: #1e1e1e; 
+            border: 1px solid #333; 
+            border-radius: 8px; 
             padding: 40px; 
             width: 100%; 
             max-width: 400px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra forte para destacar no escuro */
-            border-top: 4px solid #d6006e; /* Toque de cor BARI (Rosa) no topo para identidade */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            border-top: 4px solid #003366; 
         }
 
-        /* Inputs Escuros */
+        .bari-logo { 
+            max-width: 200px; 
+            width: 100%;      
+            height: auto;
+            display: block; 
+            margin: 0 auto 15px auto;
+        }
+
         .form-control {
             background-color: #2d2d2d;
             border: 1px solid #444;
-            color: #fff; /* Texto digitado branco */
+            color: #fff; 
+            padding: 12px; 
         }
         
         .form-control:focus {
             background-color: #333;
             color: #fff;
-            border-color: #d6006e; /* Foco na cor do banco */
-            box-shadow: 0 0 0 0.25rem rgba(214, 0, 110, 0.25);
+            border-color: #004a99; 
+            box-shadow: 0 0 0 0.25rem rgba(0, 74, 153, 0.25);
         }
         
-        /* Placeholder mais claro para ler no fundo escuro */
-        .form-control::placeholder {
-            color: #888;
+        .form-label {
+            color: #cccccc;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Botão Dark/Brand */
         .btn-login { 
-            background-color: #d6006e; /* Rosa Bari */
-            border-color: #d6006e;
+            background-color: #003366; 
+            border-color: #003366;
             color: white; 
             font-weight: 700; 
             padding: 12px;
@@ -65,54 +90,51 @@
         }
         
         .btn-login:hover { 
-            background-color: #a30054; /* Rosa mais escuro */
-            border-color: #a30054;
-            transform: translateY(-2px); /* Pequeno efeito de elevação */
+            background-color: #002244; 
+            border-color: #002244;
+            transform: translateY(-2px);
         }
 
-        .bari-logo { 
-            max-width: 140px; 
-            display: block; 
-            margin: 0 auto 25px auto; 
-            /* Se o logo for preto, isto inverte para branco. Se for colorido, remove esta linha: */
-            filter: brightness(0) invert(1); 
-        }
-        
-        .text-secondary {
-            color: #aaaaaa !important; /* Ajuste de cor para labels */
+        .footer-text {
+            color: #ffffff !important;
+            opacity: 0.6;
+            font-size: 0.75rem;
         }
     </style>
 </head>
 <body>
+
+    <div class="system-badge">
+        Gestão de Acessos AD
+    </div>
+
     <div class="card-login">
         <div class="text-center mb-4">
-             <img src="~/img/logo-bari.png" alt="Banco Bari" class="bari-logo" onerror="this.style.display='none'; document.getElementById('text-logo').style.display='block'" />
-             
-             <h2 id="text-logo" style="display:none; font-weight:bold; color: white;">BARI</h2>
-             <p class="text-secondary small">Acesso Administrativo</p>
-        </div>
+             <img src="~/img/logo-bari.png" alt="Banco Bari" class="bari-logo" onerror="this.style.display='none'" />
+             <h4 style="color: white; font-weight: 300; margin-top: 10px;">Bem-vindo</h4>
+             </div>
         
         @if (ViewBag.Erro != null)
         {
-            <div class="alert alert-danger text-center py-2 bg-danger text-white border-0" role="alert">
+            <div class="alert alert-danger text-center py-2 bg-danger text-white border-0 mb-4" role="alert">
                 <small>@ViewBag.Erro</small>
             </div>
         }
 
         <form action="/Login/Entrar" method="post">
             <div class="mb-3">
-                <label class="form-label small fw-bold text-secondary">USUÁRIO</label>
-                <input type="text" name="usuario" class="form-control form-control-lg" required />
+                <label class="form-label">Usuário</label>
+                <input type="text" name="usuario" class="form-control" required />
             </div>
             <div class="mb-4">
-                <label class="form-label small fw-bold text-secondary">SENHA</label>
-                <input type="password" name="senha" class="form-control form-control-lg" required />
+                <label class="form-label">Senha</label>
+                <input type="password" name="senha" class="form-control" required />
             </div>
-            <button type="submit" class="btn btn-login w-100">ENTRAR</button>
+            <button type="submit" class="btn btn-login w-100">ACESSAR</button>
         </form>
         
         <div class="text-center mt-4">
-            <small class="text-muted" style="font-size: 0.75rem; opacity: 0.6;">&copy; 2025 Banco Bari - SecOps</small>
+            <small class="footer-text">&copy; 2025 Banco Bari - Tecnologia</small>
         </div>
     </div>
 </body>
