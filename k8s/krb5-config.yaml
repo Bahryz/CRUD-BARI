@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: krb5-conf
+data:
+  krb5.conf: |
+    [libdefaults]
+      default_realm = SEU.DOMINIO.REAL
+      dns_lookup_realm = false
+      dns_lookup_kdc = true
+
+    [realms]
+      SEU.DOMINIO.REAL = {
+        kdc = ip.do.servidor.ad
+        admin_server = ip.do.servidor.ad
+        default_domain = seu.dominio.real
+      }
+
+    [domain_realm]
+      .seu.dominio.real = SEU.DOMINIO.REAL
+      seu.dominio.real = SEU.DOMINIO.REAL

@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gerenciador-ad
+  namespace: default # Teu chefe pode querer mudar isso
+  labels:
+    app: gerenciador-ad
+spec:
+  replicas: 2 # Padrão Enterprise: 2 réplicas para alta disponibilidade (se um cai, o outro assume)
+  selector:
+    matchLabels:
+      app: gerenciador-ad
+  template:
+    metadata:
+      labels:
+        app: gerenciador-ad
+    spec:
+      # Configuração DNS crítica para achar o AD na rede da empresa
+      dnsPolicy: "ClusterFirst" 
+      containers:
+      - name: gerenciador-ad
+        # --- AQUI VAI O ENDEREÇO REAL DO REGISTRY DA EMPRESA ---
+        # Exemplo: meuregistry.azurecr.io/gerenciador-ad:v1
+        image: SEU_REGISTRY_AQUI/gerenciador-ad:v1 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        
+        # --- RECURSOS (Obrigatório em Produção) ---
+        # Garante que o app não consuma todo o servidor
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+
+        # --- PROBES (Auto-Recuperação) ---
+        # Se o app travar, o K8s reinicia-o automaticamente
+        livenessProbe:
+          httpGet:
+            path: /Login # Verifica se a tela de login responde
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        
+        # Variáveis de Ambiente (Segredos injetados)
+        env:
+        - name: AdConfig__Dominio
+          value: "SEU.DOMINIO.REAL" # Coloca o domínio real aqui ou pede pra infra injetar
+        - name: AdConfig__GrupoPermitido
+          value: "Sistemas"
+        
+        # Segredos (Lê do secret.yaml que já criaste)
+        - name: AdConfig__UsuarioAdmin
+          valueFrom: { secretKeyRef: { name: ad-secrets, key: AdConfig__UsuarioAdmin } }
+        - name: AdConfig__SenhaAdmin
+          valueFrom: { secretKeyRef: { name: ad-secrets, key: AdConfig__SenhaAdmin } }
+        - name: AdConfig__MasterUser
+          valueFrom: { secretKeyRef: { name: ad-secrets, key: AdConfig__MasterUser } }
+        - name: AdConfig__MasterPass
+          valueFrom: { secretKeyRef: { name: ad-secrets, key: AdConfig__MasterPass } }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gerenciador-ad-service
+spec:
+  type: ClusterIP # Em produção, não se usa NodePort fixo (30000). Usa-se ClusterIP + Ingress.
+  selector:
+    app: gerenciador-ad
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
