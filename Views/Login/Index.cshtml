@@ -1,0 +1,45 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - BARI AD</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body { background: linear-gradient(135deg, #d6006e 0%, #33001b 100%); height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .card-login { background: white; border-radius: 15px; padding: 40px; width: 100%; max-width: 400px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .btn-bari { background-color: #d6006e; color: white; font-weight: bold; }
+        .btn-bari:hover { background-color: #a30054; color: white; }
+        .bari-logo { width: 120px; display: block; margin: 0 auto 20px auto; }
+    </style>
+</head>
+<body>
+    <div class="card-login">
+        <img src="~/img/logo-bari.png" alt="Banco Bari" class="bari-logo" onerror="this.style.display='none'"/>
+        <h4 class="text-center mb-4" style="color: #d6006e;">Acesso Restrito</h4>
+        
+        @if (ViewBag.Erro != null)
+        {
+            <div class="alert alert-danger text-center">@ViewBag.Erro</div>
+        }
+
+        <form action="/Login/Entrar" method="post">
+            <div class="mb-3">
+                <label class="form-label text-muted">Usuário</label>
+                <input type="text" name="usuario" class="form-control form-control-lg" required placeholder="Ex: Sistemas" />
+            </div>
+            <div class="mb-4">
+                <label class="form-label text-muted">Senha</label>
+                <input type="password" name="senha" class="form-control form-control-lg" required />
+            </div>
+            <button type="submit" class="btn btn-bari btn-lg w-100">ENTRAR</button>
+        </form>
+        <div class="text-center mt-3">
+            <small class="text-muted">Acesso exclusivo para Analistas</small>
+        </div>
+    </div>
+</body>
+</html>

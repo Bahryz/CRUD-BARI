@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: gerenciador-ad
   namespace: default
-  labels:
-    app: gerenciador-ad
 spec:
   replicas: 1
   selector:
@@ -15,8 +13,7 @@ spec:
       labels:
         app: gerenciador-ad
     spec:
-      # --- CORREÇÃO AQUI: dnsPolicy é irmão de containers ---
-      dnsPolicy: "ClusterFirst"
+      dnsPolicy: "ClusterFirst" # Moveu-se para aqui (Nível Pod)
       containers:
       - name: gerenciador-ad
         image: gerenciador-ad:v1
@@ -26,26 +23,18 @@ spec:
         env:
         - name: AdConfig__Dominio
           value: "SEU.DOMINIO.LOCAL"
+        - name: AdConfig__GrupoPermitido
+          value: "Analistas" # O grupo que bloqueia o acesso
+        
+        # Injeção de Segredos
         - name: AdConfig__UsuarioAdmin
-          valueFrom:
-            secretKeyRef:
-              name: ad-secrets
-              key: AdConfig__UsuarioAdmin
+          valueFrom: { secretKeyRef: { name: ad-secrets, key: AdConfig__UsuarioAdmin } }
         - name: AdConfig__SenhaAdmin
-          valueFrom:
-            secretKeyRef:
-              name: ad-secrets
-              key: AdConfig__SenhaAdmin
-        - name: AdConfig__AppLogin
-          valueFrom:
-            secretKeyRef:
-              name: ad-secrets
-              key: AdConfig__AppLogin
-        - name: AdConfig__AppSenha
-          valueFrom:
-            secretKeyRef:
-              name: ad-secrets
-              key: AdConfig__AppSenha
+          valueFrom: { secretKeyRef: { name: ad-secrets, key: AdConfig__SenhaAdmin } }
+        - name: AdConfig__MasterUser
+          valueFrom: { secretKeyRef: { name: ad-secrets, key: AdConfig__MasterUser } }
+        - name: AdConfig__MasterPass
+          valueFrom: { secretKeyRef: { name: ad-secrets, key: AdConfig__MasterPass } }
 ---
 apiVersion: v1
 kind: Service

@@ -4,7 +4,11 @@ namespace GerenciadorAD_Web.Configurations
     {
         public string Dominio { get; set; }
         public string UsuarioAdmin { get; set; }
-        public string SenhaAdmin { get; set; } // Será preenchido via Env Var
-        public string ContainerOuOu { get; set; } // Opcional: Unidade Organizacional base
+        public string SenhaAdmin { get; set; }
+        
+        // Configurações de Segurança
+        public string GrupoPermitido { get; set; } = "Analistas"; // Padrão
+        public string MasterUser { get; set; }
+        public string MasterPass { get; set; }
     }
 }
