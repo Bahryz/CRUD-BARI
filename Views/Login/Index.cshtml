@@ -8,37 +8,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - BARI AD</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" /> 
+    
     <style>
-        body { background: linear-gradient(135deg, #d6006e 0%, #33001b 100%); height: 100vh; display: flex; align-items: center; justify-content: center; }
-        .card-login { background: white; border-radius: 15px; padding: 40px; width: 100%; max-width: 400px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .btn-bari { background-color: #d6006e; color: white; font-weight: bold; }
-        .btn-bari:hover { background-color: #a30054; color: white; }
-        .bari-logo { width: 120px; display: block; margin: 0 auto 20px auto; }
+        /* --- TEMA ESCURO (DARK MODE) --- */
+        body { 
+            background-color: #121212; /* Preto profundo (Fundo Geral) */
+            color: #e0e0e0; /* Texto claro */
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .card-login { 
+            background-color: #1e1e1e; /* Cinza Escuro (Cartão) */
+            border: 1px solid #333; /* Borda sutil */
+            border-radius: 12px; 
+            padding: 40px; 
+            width: 100%; 
+            max-width: 400px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra forte para destacar no escuro */
+            border-top: 4px solid #d6006e; /* Toque de cor BARI (Rosa) no topo para identidade */
+        }
+
+        /* Inputs Escuros */
+        .form-control {
+            background-color: #2d2d2d;
+            border: 1px solid #444;
+            color: #fff; /* Texto digitado branco */
+        }
+        
+        .form-control:focus {
+            background-color: #333;
+            color: #fff;
+            border-color: #d6006e; /* Foco na cor do banco */
+            box-shadow: 0 0 0 0.25rem rgba(214, 0, 110, 0.25);
+        }
+        
+        /* Placeholder mais claro para ler no fundo escuro */
+        .form-control::placeholder {
+            color: #888;
+        }
+
+        /* Botão Dark/Brand */
+        .btn-login { 
+            background-color: #d6006e; /* Rosa Bari */
+            border-color: #d6006e;
+            color: white; 
+            font-weight: 700; 
+            padding: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-login:hover { 
+            background-color: #a30054; /* Rosa mais escuro */
+            border-color: #a30054;
+            transform: translateY(-2px); /* Pequeno efeito de elevação */
+        }
+
+        .bari-logo { 
+            max-width: 140px; 
+            display: block; 
+            margin: 0 auto 25px auto; 
+            /* Se o logo for preto, isto inverte para branco. Se for colorido, remove esta linha: */
+            filter: brightness(0) invert(1); 
+        }
+        
+        .text-secondary {
+            color: #aaaaaa !important; /* Ajuste de cor para labels */
+        }
     </style>
 </head>
 <body>
     <div class="card-login">
-        <img src="~/img/logo-bari.png" alt="Banco Bari" class="bari-logo" onerror="this.style.display='none'"/>
-        <h4 class="text-center mb-4" style="color: #d6006e;">Acesso Restrito</h4>
+        <div class="text-center mb-4">
+             <img src="~/img/logo-bari.png" alt="Banco Bari" class="bari-logo" onerror="this.style.display='none'; document.getElementById('text-logo').style.display='block'" />
+             
+             <h2 id="text-logo" style="display:none; font-weight:bold; color: white;">BARI</h2>
+             <p class="text-secondary small">Acesso Administrativo</p>
+        </div>
         
         @if (ViewBag.Erro != null)
         {
-            <div class="alert alert-danger text-center">@ViewBag.Erro</div>
+            <div class="alert alert-danger text-center py-2 bg-danger text-white border-0" role="alert">
+                <small>@ViewBag.Erro</small>
+            </div>
         }
 
         <form action="/Login/Entrar" method="post">
             <div class="mb-3">
-                <label class="form-label text-muted">Usuário</label>
-                <input type="text" name="usuario" class="form-control form-control-lg" required placeholder="Ex: Sistemas" />
+                <label class="form-label small fw-bold text-secondary">USUÁRIO</label>
+                <input type="text" name="usuario" class="form-control form-control-lg" required />
             </div>
             <div class="mb-4">
-                <label class="form-label text-muted">Senha</label>
+                <label class="form-label small fw-bold text-secondary">SENHA</label>
                 <input type="password" name="senha" class="form-control form-control-lg" required />
             </div>
-            <button type="submit" class="btn btn-bari btn-lg w-100">ENTRAR</button>
+            <button type="submit" class="btn btn-login w-100">ENTRAR</button>
         </form>
-        <div class="text-center mt-3">
-            <small class="text-muted">Acesso exclusivo para Analistas</small>
+        
+        <div class="text-center mt-4">
+            <small class="text-muted" style="font-size: 0.75rem; opacity: 0.6;">&copy; 2025 Banco Bari - SecOps</small>
         </div>
     </div>
 </body>

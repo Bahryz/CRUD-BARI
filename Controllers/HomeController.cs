@@ -1,25 +1,33 @@
-using GerenciadorAD_Web.Models; // Importa o ErrorViewModel
-using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using GerenciadorAD_Web.Models;
+using Microsoft.AspNetCore.Authorization; // <--- 1. OBRIGATÓRIO TER ISTO
 
-namespace GerenciadorAD_Web.Controllers
+namespace GerenciadorAD_Web.Controllers;
+
+[Authorize] // <--- 2. O PORTEIRO: Bloqueia quem não tem login
+public class HomeController : Controller
 {
-    public class HomeController : Controller
-    {
-        // Este método GET: /Home/Index
-        // Será executado quando a aplicação iniciar
-        [HttpGet]
-        public IActionResult Index()
-        {
-            // Ele simplesmente retorna a sua View do menu principal
-            return View(); // Retorna o ficheiro Views/Home/Index.cshtml
-        }
+    private readonly ILogger<HomeController> _logger;
 
-        // Este método é para a página de Erro
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+    public HomeController(ILogger<HomeController> logger)
+    {
+        _logger = logger;
+    }
+
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }

@@ -1,10 +1,12 @@
 using System.DirectoryServices.AccountManagement;
+using System.Runtime.Versioning;  
 using Microsoft.Extensions.Options;
 using GerenciadorAD_Web.Configurations;
 using GerenciadorAD_Web.Models;
 
 namespace GerenciadorAD_Web.Services
 {
+    [SupportedOSPlatform("windows")]
     public class AdService : IAdService
     {
         private readonly AdConfig _config;

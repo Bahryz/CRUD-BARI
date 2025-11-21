@@ -2,13 +2,13 @@ namespace GerenciadorAD_Web.Configurations
 {
     public class AdConfig
     {
-        public string Dominio { get; set; }
-        public string UsuarioAdmin { get; set; }
-        public string SenhaAdmin { get; set; }
+        public string Dominio { get; set; } = string.Empty;
+        public string UsuarioAdmin { get; set; } = string.Empty;
+        public string SenhaAdmin { get; set; } = string.Empty;
         
-        // Configurações de Segurança
-        public string GrupoPermitido { get; set; } = "Analistas"; // Padrão
-        public string MasterUser { get; set; }
-        public string MasterPass { get; set; }
+        public string GrupoPermitido { get; set; } = "Analistas";
+        
+        public string MasterUser { get; set; } = string.Empty;
+        public string MasterPass { get; set; } = string.Empty;
     }
 }

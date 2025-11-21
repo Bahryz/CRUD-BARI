@@ -1,33 +1,39 @@
-﻿using GerenciadorAD_Web.Configurations;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using GerenciadorAD_Web.Configurations;
 using GerenciadorAD_Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- 1. CONFIGURAÇÃO DE SEGURANÇA E AMBIENTE (K8S) ---
+// Configuração segura e Injeção de Dependência
 builder.Services.Configure<AdConfig>(builder.Configuration.GetSection("AdConfig"));
-
-// --- 2. INJEÇÃO DE DEPENDÊNCIA (DI) ---
 builder.Services.AddScoped<IAdService, AdService>();
 
-// Add services to the container.
+// --- CORREÇÃO DO LOGIN ---
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login"; 
+        options.AccessDeniedPath = "/Login"; 
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+    });
+// -------------------------
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
