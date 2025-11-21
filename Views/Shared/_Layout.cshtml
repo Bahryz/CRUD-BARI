@@ -3,19 +3,51 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Gerenciador AD</title>
-    
+    <title>@ViewData["Title"] - BARI AD</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
-<body class="bg-main">
+<body>
+    <header>
+        <nav class="navbar navbar-expand navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/logo-bari.png" alt="Bari" style="height: 35px; width: auto; margin-right: 15px;" />
+                    <span style="border-left: 1px solid #555; padding-left: 15px;">Gestão de Acessos AD</span>
+                </a>
+                
+                <div class="navbar-nav ms-auto">
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="user-badge">
+                                <span class="user-label">USUÁRIO:</span>
+                                <span class="user-name">@User.Identity.Name</span>
+                            </div>
+                            
+                            <a class="btn btn-sm btn-outline-danger border-0" asp-controller="Login" asp-action="Sair" title="Sair">
+                                ✕
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    @RenderBody()
+    <div class="content-wrapper">
+        <main role="main" class="container d-flex justify-content-center">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        &copy; 2025 Banco Bari - Tecnologia
+    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -1,43 +1,32 @@
-@model UserViewModel
 @{
     ViewData["Title"] = "Excluir Usuário";
 }
 
-<nav class="navbar shadow-sm mb-4">
-    <div class="container bari-header">
-        <img src="/img/logo-bari.png" alt="Logo Bari" class="logo-bari" />
-        <span class="bari-title">Gerenciador de Usuários AD</span>
+<div class="panel-card" style="border-color: #5a2323;"> <div class="panel-header">
+        <h1 class="panel-title text-danger"><span style="opacity:0.7; margin-right:10px;">❌</span> Excluir Conta</h1>
+        <p class="panel-subtitle">Ação irreversível. O usuário será removido do AD.</p>
     </div>
-</nav>
 
-<main class="container-main">
-    <div class="card shadow-sm mx-auto">
-        <div class="card-body px-4">
+    <div class="panel-body">
+        @if (ViewBag.MensagemErro != null)
+        {
+             <div class="alert alert-danger small py-2 mb-4 border-0 rounded-1">@ViewBag.MensagemErro</div>
+        }
+        @if (ViewBag.MensagemSucesso != null)
+        {
+             <div class="alert alert-success small py-2 mb-4 border-0 rounded-1">@ViewBag.MensagemSucesso</div>
+        }
 
-            <h2 class="mb-4 text-center fw-bold">Excluir Usuário</h2>
-            <p class="sub-title mb-4 text-center">Insira o login do usuário a ser excluído.</p>
+        <form asp-action="Excluir" method="post">
+            <div class="mb-4">
+                <label class="form-label text-danger">Login do Usuário a Excluir</label>
+                <input type="text" name="Login" class="form-control" required style="border-color: #5a2323;" />
+            </div>
 
-            @if (ViewBag.MensagemSucesso != null)
-            {
-                <div class="alert alert-success">@ViewBag.MensagemSucesso</div>
-            }
-            @if (ViewBag.MensagemErro != null)
-            {
-                <div class="alert alert-danger">@ViewBag.MensagemErro</div>
-            }
-
-            <form asp-action="Excluir" method="post">
-                <div class="mb-3">
-                    <label asp-for="Login" class="form-label"></label>
-                    <input asp-for="Login" class="form-control" placeholder="@Model.Dominio\" />
-                </div>
-
-                <div class="d-grid gap-2 mt-4">
-                    <button type="submit" class="btn btn-primary btn-lg"><span>❌</span> Excluir</button>
-                    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary mt-2">Voltar ao Menu</a>
-                </div>
-            </form>
-
-        </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-danger fw-bold">CONFIRMAR EXCLUSÃO</button>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary border-0" style="color: #aaa;">Cancelar</a>
+            </div>
+        </form>
     </div>
-</main>
+</div>

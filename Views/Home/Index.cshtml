@@ -1,36 +1,41 @@
 @{
-    Layout = null;
+    ViewData["Title"] = "Painel de Operações";
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gerenciador de Usuários AD</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/site.css" />
-</head>
-<body>
-    <nav class="navbar shadow-sm mb-4">
-        <div class="container bari-header">
-            <img src="/img/logo-bari.png" alt="Logo Bari" class="logo-bari" />
-            <span class="bari-title">Gerenciador de Usuários AD</span>
+
+<div class="panel-card">
+    <div class="panel-header">
+        <h1 class="panel-title">Painel de Operações</h1>
+        <p class="panel-subtitle">Selecione a ação que deseja realizar no Active Directory</p>
+    </div>
+    
+    <div class="panel-body">
+        <div class="action-list">
+            <a href="/Usuario/Criar" class="btn-action">
+                <div><span class="icon">👤</span> Criar Novo Usuário</div>
+                <span>➜</span>
+            </a>
+            
+            <a href="/Usuario/ResetSenha" class="btn-action">
+                <div><span class="icon">🔑</span> Redefinir Senha</div>
+                <span>➜</span>
+            </a>
+            
+            <a href="/Usuario/AdicionarGrupo" class="btn-action">
+                <div><span class="icon">➕</span> Adicionar ao Grupo</div>
+                <span>➜</span>
+            </a>
+
+            <a href="/Usuario/RemoverGrupo" class="btn-action">
+                <div><span class="icon">➖</span> Remover do Grupo</div>
+                <span>➜</span>
+            </a>
+
+            <hr style="border-color: #333; margin: 10px 0;">
+
+            <a href="/Usuario/Excluir" class="btn-action danger">
+                <div><span class="icon">❌</span> Excluir Usuário</div>
+                <span>➜</span>
+            </a>
         </div>
-    </nav>
-    <main class="container-main d-flex flex-column align-items-center">
-        <div class="card shadow-sm mx-auto">
-            <div class="card-body px-4">
-                <h2 class="mb-4 text-center fw-bold">Menu Principal</h2>
-                <p class="sub-title mb-4 text-center">Selecione uma operação:</p>
-                <div class="d-grid gap-3">
-                    <a href="/Usuario/Criar" class="btn btn-primary btn-lg"><span>👤</span>Criar Usuário</a>
-                    <a href="/Usuario/ResetSenha" class="btn btn-primary btn-lg"><span>🔑</span>Resetar Senha</a>
-                    <a href="/Usuario/AdicionarGrupo" class="btn btn-primary btn-lg"><span>👥</span>Adicionar ao Grupo</a>
-                    <a href="/Usuario/RemoverGrupo" class="btn btn-primary btn-lg"><span>👥</span>Remover do Grupo</a>
-                    <a href="/Usuario/Excluir" class="btn btn-primary btn-lg"><span>❌</span>Excluir Usuário</a>
-                </div>
-            </div>
-        </div>
-    </main>
-</body>
-</html>
+    </div>
+</div>
