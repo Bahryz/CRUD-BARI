@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gerenciador-ad
+  namespace: default
+  labels:
+    app: gerenciador-ad
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gerenciador-ad
+  template:
+    metadata:
+      labels:
+        app: gerenciador-ad
+    spec:
+      # --- CORREÇÃO AQUI: dnsPolicy é irmão de containers ---
+      dnsPolicy: "ClusterFirst"
+      containers:
+      - name: gerenciador-ad
+        image: gerenciador-ad:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        env:
+        - name: AdConfig__Dominio
+          value: "SEU.DOMINIO.LOCAL"
+        - name: AdConfig__UsuarioAdmin
+          valueFrom:
+            secretKeyRef:
+              name: ad-secrets
+              key: AdConfig__UsuarioAdmin
+        - name: AdConfig__SenhaAdmin
+          valueFrom:
+            secretKeyRef:
+              name: ad-secrets
+              key: AdConfig__SenhaAdmin
+        - name: AdConfig__AppLogin
+          valueFrom:
+            secretKeyRef:
+              name: ad-secrets
+              key: AdConfig__AppLogin
+        - name: AdConfig__AppSenha
+          valueFrom:
+            secretKeyRef:
+              name: ad-secrets
+              key: AdConfig__AppSenha
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gerenciador-ad-service
+spec:
+  type: NodePort
+  selector:
+    app: gerenciador-ad
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      nodePort: 30000
